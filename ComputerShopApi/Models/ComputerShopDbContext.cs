@@ -29,9 +29,17 @@ namespace ComputerShopApi.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var conn = "Server=db74563.databaseasp.net; Database=db74563; Uid=db74563; Pwd=M+j9wS2-Z!p5;";
-
-            optionsBuilder.UseMySql(conn, new MySqlServerVersion(new Version(8, 0, 30)));
+            if (!optionsBuilder.IsConfigured)
+            {
+                var conn = "Server=db74563.databaseasp.net; Database=db74563; Uid=db74563; Pwd=M+j9wS2-Z!p5;";
+                optionsBuilder.UseMySql(conn, new MySqlServerVersion(new Version(8, 0, 30)), mysqlOptions =>
+                {
+                    mysqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null);
+                });
+            }
         }
     }
 }

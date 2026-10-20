@@ -1,5 +1,6 @@
 using ComputerShopApi.Models; // <-- Fontos a modellek és a DbContext miatt
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace ComputerShopApi
 {
@@ -9,13 +10,44 @@ namespace ComputerShopApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //var conn = "server=localhost;database=computer;user=root;password=";
+
+            //optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
+
             // 1. ITT KELL REGISZTRÁLNI A DB CONTEXT-ET (Ez hiányzott!)
-            var conn = "Server=db74563.databaseasp.net; Database=db74563; Uid=db74563; Pwd=M+j9wS2-Z!p5;";
+            //var conn = "Server=db74563.databaseasp.net; Database=db74563; Uid=db74563; Pwd=M+j9wS2-Z!p5;";
+
             //builder.Services.AddDbContext<ComputerShopDbContext>(options =>
             //    options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 30)); // vagy amilyen verzió van a szerveren
             builder.Services.AddDbContext<ComputerShopDbContext>(options =>
-                options.UseMySql(conn, serverVersion));
+            {
+                var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+                if (builder.Environment.IsDevelopment())
+                {
+                    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mysqlOptions =>
+                    {
+                        mysqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 5,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null);
+                    });
+                }
+                else
+                {
+                    var serverVersion = new MySqlServerVersion(new Version(8, 0, 30));
+                    options.UseMySql(connectionString, serverVersion, mysqlOptions =>
+                    {
+                        mysqlOptions.EnableRetryOnFailure(
+                            maxRetryCount: 5,
+                            maxRetryDelay: TimeSpan.FromSeconds(30),
+                            errorNumbersToAdd: null);
+                    });
+                }
+            });
             builder.Services.AddSwaggerGen();
 
             // 2. CORS házirend regisztrálása
