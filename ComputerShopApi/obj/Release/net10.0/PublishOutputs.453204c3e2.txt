@@ -1,0 +1,17 @@
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\ComputerShopApi.exe
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\appsettings.Development.json
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\appsettings.json
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\ComputerShopApi.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\ComputerShopApi.runtimeconfig.json
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\ComputerShopApi.pdb
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\MySqlConnector.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\!SULI\!backend\Webshop\ComputerShopApi\obj\Release\net10.0\PubTmp\Out\ComputerShopApi.deps.json
